@@ -6,11 +6,10 @@ gem 'rails', '4.2.11.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.6.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+##gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -23,6 +22,25 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'sass', '~> 3.2.18'
+gem 'sass-rails', '~> 4.0.3'
+gem 'uglifier'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'compass-rails'
+gem 'susy'
+gem 'turbolinks'
+gem 'sprockets-rails',  '~>2.3.3'
+gem 'tilt', require: true
+
+
+
+
+
+gem 'jquery-rails', '~>4.0.4'
+gem 'compass-rails'
+gem 'susy'
+gem 'turbolinks'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -31,6 +49,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :test do
+  gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
+  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'timecop'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'test_after_commit', require: false
+  gem 'knapsack_pro'
+  gem 'database_cleaner', '~> 1.6.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
