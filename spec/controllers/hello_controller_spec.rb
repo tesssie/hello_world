@@ -1,16 +1,15 @@
 # frozen_string_literal: true
+#
+require "rails_helper"
 
-require 'rspec'
-require 'rails_helper'
+RSpec.describe HelloController  do
 
-RSpec.describe 'HelloController' do
+
   describe 'GET #hello' do
-    it 'returns a hello message in JSON format' do
+    it 'returns a JSON response with a hello message' do
       get :hello
-      json_response = JSON.parse(response.body)
-
-      expect(response.status).to eq(200)
-      expect(json_response['message']).to eq('hello')
+      expect(response).to have_http_status(:success)
+      expect(JSON.parse(response.body)).to eq({ 'message' => 'Hello!' })
     end
   end
 end
