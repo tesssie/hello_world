@@ -6,7 +6,7 @@ RSpec.describe UsersController, type: :controller do
       user1 = User.create(name: 'John', email: 'john@example.com')
       user2 = User.create(name: 'Jane', email: 'jane@example.com')
 
-      get index
+      get :index
       expect(response).to have_http_status(:ok)
       expect(response.content_type).to eq('application/json')
       expect(JSON.parse(response.body)['users'].length).to eq(2)
