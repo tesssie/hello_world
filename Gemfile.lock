@@ -328,7 +328,7 @@ DEPENDENCIES
   ar-octopus (= 0.8.6)
   attribute_normalizer
   bettertabs
-  bigdecimal (~> 1.4.4)
+  bigdecimal (~> 1.4.1)
   bootstrap-sass (~> 2.3.2.2)
   bootstrap-timepicker-rails
   bootstrap-will_paginate (~> 0.0.9)
