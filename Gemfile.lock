@@ -53,6 +53,7 @@ GEM
     bettertabs (1.4.2)
       jquery-rails
       rails (>= 3.1.0)
+    bigdecimal (1.4.4)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.2.2)
@@ -327,6 +328,7 @@ DEPENDENCIES
   ar-octopus (= 0.8.6)
   attribute_normalizer
   bettertabs
+  bigdecimal (~> 1.4.4)
   bootstrap-sass (~> 2.3.2.2)
   bootstrap-timepicker-rails
   bootstrap-will_paginate (~> 0.0.9)
