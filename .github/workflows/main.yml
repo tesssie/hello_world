@@ -16,12 +16,21 @@ on:
     branches: [ main ]
 
 jobs:
+  services:
+    mysql:
+      image: mysql:latest
+      env:
+        MYSQL_ROOT_PASSWORD: root_password
+        MYSQL_DATABASE: test_database
+      ports:
+        - 3306:3306
+      options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
   test:
     runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu, macos]
+        os: [ubuntu, mac]
         ruby: [2.6.10, 2.7]
     continue-on-error: ${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}
     steps:
@@ -30,4 +39,5 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
       - run: bundle install
+      -  bundle exec rails db:create db:schema:load RAILS_ENV=test
       - run: bundle exec rspec
