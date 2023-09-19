@@ -41,5 +41,5 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
       - run: bundle install
       - run: RAILS_ENV=test bundle exec rake db:create
-      - run: RAILS_ENV=test bundle exec rake db:migrate
+#      - run: RAILS_ENV=test bundle exec rake db:migrate
       - run: bundle exec rspec
