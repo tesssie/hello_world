@@ -17,7 +17,7 @@ RSpec.describe UsersController do
     it 'renders a user' do
       user = User.create(name: 'John', email: 'john@example.com')
 
-      get :show, { id: user.id }
+      get :show, params: { id: user.id }
       expect(response).to have_http_status(:ok)
       expect(response.content_type).to eq('application/json')
       expect(JSON.parse(response.body)['id']).to eq(user.id)
@@ -29,7 +29,7 @@ RSpec.describe UsersController do
       it 'creates a new user' do
         expect {
 
-          post :create, user: { name: 'John', email: 'john@example.com' }
+          post :create, params: {user: { name: 'John', email: 'john@example.com' }}
         }.to change(User, :count).by(1)
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
@@ -42,7 +42,7 @@ RSpec.describe UsersController do
       it 'updates the user' do
         user = User.create(name: 'John', email: 'john@example.com')
 
-        patch :update, {id: user.id, user:  { name: 'John', email: 'john@example.com' } }
+        patch :update, params: {id: user.id, user:  { name: 'John', email: 'john@example.com' } }
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq('application/json')
       end
@@ -53,7 +53,7 @@ RSpec.describe UsersController do
     it 'deletes the user' do
       user = User.create(name: 'John', email: 'john@example.com')
 
-      delete :destroy,{ id: user.id }
+      delete :destroy, params: { id: user.id }
       expect(response).to have_http_status(:no_content)
       expect(User.count).to eq(0)
     end
